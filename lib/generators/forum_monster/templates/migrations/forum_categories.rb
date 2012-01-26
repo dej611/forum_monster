@@ -1,6 +1,6 @@
-class CreateCategoriesTable < ActiveRecord::Migration
+class CreateForumCategoriesTable < ActiveRecord::Migration
   def self.up
-    create_table :categories, :force => true do |t|
+    create_table :forum_categories, :force => true do |t|
       t.string   :title
       t.boolean  :state, :default => true
       t.integer  :position, :default => 0
@@ -10,6 +10,6 @@ class CreateCategoriesTable < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :categories
+    drop_table :forum_categories
   end
 end

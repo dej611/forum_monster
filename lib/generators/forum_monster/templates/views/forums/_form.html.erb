@@ -1,7 +1,7 @@
 <div class="module">
   <div class="module_header"><%= action_name.humanize %> Forum</div>
     <div class="module_subheader smaller">
-      <em>To create a category, leave the category field unselected.</em>
+      <em>To create a forum category, leave the category field unselected.</em>
     </div>
     <div class="module_body">
       <%= form_for @forum do |f| %>
@@ -10,11 +10,11 @@
       <% end %>
       <div class="fieldset">
         <span class="label indent smaller">
-          <%= f.label :category_id %><br />
+          <%= f.label :forum_category_id %><br />
           <small>(Required)</small>
         </span>
         <span class="input indent smaller">
-          <%= f.collection_select :category_id, Category.all, :id, :title %>
+          <%= f.collection_select :forum_category_id, ForumCategory.all, :id, :title %>
         </span>
         <div class="clear"></div>
       </div>

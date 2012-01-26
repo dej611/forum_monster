@@ -23,7 +23,7 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
   end
 
   def create_controllers
-    template "controllers/categories_controller.rb", "app/controllers/categories_controller.rb"
+    template "controllers/forum_categories_controller.rb", "app/controllers/forum_categories_controller.rb"
     template "controllers/forums_controller.rb", "app/controllers/forums_controller.rb"
     template "controllers/topics_controller.rb", "app/controllers/topics_controller.rb"
     template "controllers/posts_controller.rb", "app/controllers/posts_controller.rb"
@@ -35,14 +35,14 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
     @singular_lower_case_name = user_model.singularize.underscore
     @plural_lower_case_name = user_model.pluralize.underscore
   	
-  	template "models/category.rb", "app/models/category.rb"
+  	template "models/forum_category.rb", "app/models/forum_category.rb"
   	template "models/forum.rb", "app/models/forum.rb"
     template "models/topic.rb", "app/models/topic.rb"
     template "models/post.rb", "app/models/post.rb"
   end
 
   def create_views
-    directory "views/categories", "app/views/categories"
+    directory "views/forum_categories", "app/views/forum_categories"
     directory "views/forums", "app/views/forums"
     directory "views/topics", "app/views/topics"
     directory "views/posts", "app/views/posts"
@@ -51,7 +51,7 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
   end
 
   def create_migrations
-    migration_template 'migrations/categories.rb', 'db/migrate/create_categories_table.rb'
+    migration_template 'migrations/forum_categories.rb', 'db/migrate/create_categories_table.rb'
     migration_template 'migrations/forums.rb', 'db/migrate/create_forums_table.rb'
     migration_template 'migrations/topics.rb', 'db/migrate/create_topics_table.rb'
     migration_template 'migrations/posts.rb', 'db/migrate/create_posts_table.rb'
@@ -59,12 +59,12 @@ class ForumMonster::InstallGenerator < Rails::Generators::Base
   end
   
   def create_routes
-    route "resources :categories, :except => [:index, :show]
+    route "resources :forum_categories, :except => [:index, :show]
   resources :forums, :except => :index do
     resources :topics, :shallow => true, :except => :index do
       resources :posts, :shallow => true, :except => [:index, :show]
     end
-    root :to => 'categories#index', :via => :get
+    root :to => 'forum_categories#index', :via => :get
   end"
   end
   
