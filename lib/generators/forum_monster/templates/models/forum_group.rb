@@ -1,10 +1,10 @@
-class ForumCategory < ActiveRecord::Base
+class ForumGroup < ActiveRecord::Base
   
   # Associations
   has_many :forums, :dependent => :destroy
   
   # Accessors
-  attr_accessible :title, :state, :position, :category_id
+  attr_accessible :title, :state, :position, :forum_group_id
   
   # Scopes
   default_scope :order => 'position ASC'

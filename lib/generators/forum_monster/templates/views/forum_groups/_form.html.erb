@@ -2,9 +2,9 @@
   <div class="module_header"><%= action_name.humanize %> Category</div>
     <div class="module_subheader smaller"></div>
     <div class="module_body">
-      <%= form_for @category do |f| %>
-      <% if @category.errors.any? %>
-        <% flash.now[:error] = @category.errors.full_messages.join(', and ') %>
+      <%= form_for @forum_group do |f| %>
+      <% if @forum_group.errors.any? %>
+        <% flash.now[:error] = @forum_group.errors.full_messages.join(', and ') %>
       <% end %>
       <div class="fieldset">
         <span class="label indent smaller">

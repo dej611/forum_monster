@@ -35,7 +35,7 @@ class ForumsController < ApplicationController
     @forum = Forum.find(params[:id])
     
     if @forum.destroy
-      flash[:notice] = "Forum Category was deleted."
+      flash[:notice] = "Forum was deleted."
       redirect_to forums_url
     end
   end
